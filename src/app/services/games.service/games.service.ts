@@ -8,7 +8,7 @@ class GamesServiceImpl {
   private readonly apiEndpoint: string = "/games";
 
   getGames = (
-    httpParams?: GetGamesRequest
+    httpParams: GetGamesRequest
   ): Promise<ResponseWithPagination<Game>> => {
     const params = HttpUtils.toURLSearchParams(httpParams);
     return RawgApiHttpClient.get<ResponseWithPagination<Game>>(
