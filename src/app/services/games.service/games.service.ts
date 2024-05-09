@@ -1,12 +1,20 @@
+import { HttpUtils } from "../../../helpers/http-utils";
+import { Game } from "../../../models/game";
+import { ResponseWithPagination } from "../../../models/responses";
 import { RawgApiHttpClient } from "../http";
+import { GetGamesRequest } from "./requests";
 
 class GamesServiceImpl {
   private readonly apiEndpoint: string = "/games";
 
-  getGames = async (): Promise<any> => {
-    return RawgApiHttpClient.get<any>(`${this.apiEndpoint}`).then(
-      (response) => response.data
-    );
+  getGames = (
+    httpParams?: GetGamesRequest
+  ): Promise<ResponseWithPagination<Game>> => {
+    const params = HttpUtils.toURLSearchParams(httpParams);
+    return RawgApiHttpClient.get<ResponseWithPagination<Game>>(
+      `${this.apiEndpoint}`,
+      { params }
+    ).then((response) => response.data);
   };
 }
 
