@@ -1,8 +1,8 @@
-import { AxiosError } from "axios";
-import { HttpServiceImpl, RawgApiHttpClient } from "./http";
-import { environment } from "../../environment";
+import { AxiosError } from 'axios';
+import { HttpServiceImpl, RawgApiHttpClient } from './http';
+import { environment } from '../../environment';
 
-const KEY_STRING = "key";
+const KEY_STRING = 'key';
 
 export function setupInterceptors() {
   setInterceptor(RawgApiHttpClient, {
@@ -37,8 +37,7 @@ const setInterceptor = (
 
   service.addResponseInterceptor({
     onFulfilled: (data) => Promise.resolve(data),
-    onRejected: async (error: AxiosError<any>) =>
-      Promise.reject(error?.response),
+    onRejected: async (error: AxiosError<any>) => Promise.reject(error?.response),
   });
 
   service.setUp();

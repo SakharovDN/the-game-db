@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { Helmet } from "react-helmet-async";
+import { ReactNode } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface PageProps {
   title: string;

@@ -1,20 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-type PayloadCreator<Requested, Returned> = (
-  body: Requested,
-  thunkApi: any
-) => Promise<Returned>;
+type PayloadCreator<Requested, Returned> = (body: Requested, thunkApi: any) => Promise<Returned>;
 
 export const getCreateThunk =
   (storeName: string) =>
-  <Requested, Returned>(
-    actionName: string,
-    func: PayloadCreator<Requested, Returned>
-  ) =>
-    createAsyncThunk<Returned, Requested>(
-      createActionName(storeName, actionName),
-      rejectCatcher(func)
-    );
+  <Requested, Returned>(actionName: string, func: PayloadCreator<Requested, Returned>) =>
+    createAsyncThunk<Returned, Requested>(createActionName(storeName, actionName), rejectCatcher(func));
 
 const rejectCatcher =
   <Requested, Returned>(func: PayloadCreator<Requested, Returned>) =>

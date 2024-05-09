@@ -1,12 +1,6 @@
-import Axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  RawAxiosRequestConfig,
-} from "axios";
+import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestConfig } from 'axios';
 
-import { environment } from "../../environment";
+import { environment } from '../../environment';
 
 export interface CustomAxiosRequestConfig extends RawAxiosRequestConfig {
   unknownErrorCode?: string;
@@ -16,9 +10,7 @@ export interface CustomAxiosRequestConfig extends RawAxiosRequestConfig {
 
 export type HttpHeaders = Record<string, string>;
 export type Fulfilled<V = any> = (value: V) => V | Promise<V>;
-export type Rejected<V = any> = (
-  err: AxiosError | any
-) => Promise<AxiosResponse<V>> | any | Error;
+export type Rejected<V = any> = (err: AxiosError | any) => Promise<AxiosResponse<V>> | any | Error;
 export type RequestInterceptor<TNewResponse = any> = {
   onFulfilled: Fulfilled<AxiosRequestConfig>;
   onRejected: Rejected<TNewResponse>;
@@ -50,10 +42,7 @@ export class HttpServiceImpl {
     }
   }
 
-  addResponseInterceptor = ({
-    onFulfilled,
-    onRejected,
-  }: ResponseInterceptor) => {
+  addResponseInterceptor = ({ onFulfilled, onRejected }: ResponseInterceptor) => {
     this.responseInterceptors.push({ onFulfilled, onRejected });
   };
 
@@ -69,32 +58,16 @@ export class HttpServiceImpl {
     return this._client.get<ResponseType>(url, this.mergeConfig(config));
   }
 
-  post<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
+  post<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
     return this._client.post<ResponseType>(url, body, this.mergeConfig(config));
   }
 
-  put<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
+  put<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
     return this._client.put<ResponseType>(url, body, this.mergeConfig(config));
   }
 
-  patch<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
-    return this._client.patch<ResponseType>(
-      url,
-      body,
-      this.mergeConfig(config)
-    );
+  patch<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
+    return this._client.patch<ResponseType>(url, body, this.mergeConfig(config));
   }
 
   delete<ResponseType>(url: string, config?: CustomAxiosRequestConfig) {
@@ -113,6 +86,4 @@ export class HttpServiceImpl {
   }
 }
 
-export const RawgApiHttpClient = new HttpServiceImpl(
-  environment.rawgApiBaseUrl
-);
+export const RawgApiHttpClient = new HttpServiceImpl(environment.rawgApiBaseUrl);

@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { HomeState, homeReducer } from "./home/home.slice";
+import { configureStore } from '@reduxjs/toolkit';
+import { HomeState, homeReducer } from './home/home.slice';
 
 export interface RootState {
   homeState: HomeState;
@@ -10,6 +10,6 @@ export const configureAppStore = () => {
     reducer: {
       homeState: homeReducer,
     },
-    devTools: process.env.NODE_ENV !== "production",
+    devTools: process.env.NODE_ENV !== 'production',
   });
 };
