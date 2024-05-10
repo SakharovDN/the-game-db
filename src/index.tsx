@@ -12,9 +12,9 @@ export const useAppDispatch = useDispatch.withTypes<typeof store.dispatch>();
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
 root.render(
-  <Provider store={store}>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </Provider>
+	<Provider store={store}>
+		<HelmetProvider>
+			<App />
+		</HelmetProvider>
+	</Provider>
 );
