@@ -28,8 +28,13 @@
     "eject": "react-scripts eject",
     "prepare": "husky"
   },
-  "lint-staged":{
-    "*": ["eslint --fix", "prettier --ignore-unknown --write"]
+  "lint-staged": {
+    "*.css": "stylelint --fix",
+    "*.scss": "stylelint --fix",
+    "*": [
+      "eslint --fix",
+      "prettier --ignore-unknown --write"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +69,13 @@
     "globals": "^15.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "postcss": "^8.4.38",
     "prettier": "3.2.5",
+    "stylelint": "^16.5.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-sass-guidelines": "^11.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "typescript-eslint": "^7.8.0"
   }
 }
