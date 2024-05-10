@@ -1,6 +1,6 @@
 export interface ResponseWithPagination<T> {
   count: number;
-  previous?: string;
   next?: string;
+  previous?: string;
   results: T[];
 }

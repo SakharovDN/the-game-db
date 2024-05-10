@@ -1,28 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { Game } from '../../models/game';
 import { HOME_STORE_NAME, getNewReleases } from './home.thunks';
 
 export interface HomeState {
   newReleases: Game[];
-  newReleasesPage: number;
   newReleasesCount: number;
+  newReleasesError: unknown;
   newReleasesLoading: boolean;
-  newReleasesError: any;
+  newReleasesPage: number;
 }
 
 const INITIAL_HOME_STATE: HomeState = {
   newReleases: [],
-  newReleasesPage: 0,
   newReleasesCount: 0,
-  newReleasesLoading: false,
   newReleasesError: undefined,
+  newReleasesLoading: false,
+  newReleasesPage: 0,
 };
 
 const homeSlice = createSlice({
-  initialState: INITIAL_HOME_STATE,
-  name: HOME_STORE_NAME,
-  reducers: {},
-  extraReducers: (builder) =>
+  extraReducers: builder =>
     builder
       .addCase(getNewReleases.pending, (state, { meta: { arg } }) => {
         state.newReleasesLoading = true;
@@ -35,12 +33,15 @@ const homeSlice = createSlice({
       .addCase(getNewReleases.fulfilled, (state, { payload }) => {
         state.newReleasesLoading = false;
         state.newReleasesCount = payload.count;
-        state.newReleases = state.newReleases.concat(payload.results);
+        state.newReleases = [...state.newReleases, ...payload.results];
       })
       .addCase(getNewReleases.rejected, (state, { payload }) => {
         state.newReleasesLoading = false;
         state.newReleasesError = payload;
       }),
+  initialState: INITIAL_HOME_STATE,
+  name: HOME_STORE_NAME,
+  reducers: {},
 });
 
 export const homeReducer = homeSlice.reducer;

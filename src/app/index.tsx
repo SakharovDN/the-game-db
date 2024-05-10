@@ -1,7 +1,7 @@
 import { HomePage } from './pages/HomePage';
 
-function App() {
-  return <HomePage></HomePage>;
-}
+const App = () => {
+  return <HomePage />;
+};
 
 export default App;

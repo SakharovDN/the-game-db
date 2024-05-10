@@ -1,24 +1,25 @@
 import { AxiosError } from 'axios';
-import { HttpServiceImpl, RawgApiHttpClient } from './http';
+
 import { environment } from '../../environment';
+import { HttpServiceImpl, RawgApiHttpClient } from './http';
 
 const KEY_STRING = 'key';
 
-export function setupInterceptors() {
+export const setupInterceptors = () => {
   setInterceptor(RawgApiHttpClient, {
     apiKey: { key: KEY_STRING, value: environment.rawgApiKey },
   });
-}
+};
 
 const setInterceptor = (
   service: HttpServiceImpl,
   options?: {
-    withCredentials?: boolean;
     apiKey?: { key: string; value: string };
+    withCredentials?: boolean;
   }
 ) => {
   service.addRequestInterceptor({
-    onFulfilled: async (config) => {
+    onFulfilled: async config => {
       if (!options?.withCredentials) {
         config.withCredentials = false;
       }
@@ -32,12 +33,14 @@ const setInterceptor = (
 
       return config;
     },
-    onRejected: (error) => Promise.reject(error),
+    onRejected: error => Promise.reject(error),
   });
 
   service.addResponseInterceptor({
-    onFulfilled: (data) => Promise.resolve(data),
-    onRejected: async (error: AxiosError<any>) => Promise.reject(error?.response),
+    onFulfilled: data => Promise.resolve(data),
+    onRejected: async (error: AxiosError<unknown>) => {
+      throw error?.response;
+    },
   });
 
   service.setUp();

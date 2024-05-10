@@ -1,2 +1,2 @@
-export * from './game';
 export * from './enums';
+export * from './game';

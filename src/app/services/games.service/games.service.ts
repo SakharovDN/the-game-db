@@ -10,7 +10,7 @@ class GamesServiceImpl {
   getGames = (httpParams: GetGamesRequest): Promise<ResponseWithPagination<Game>> => {
     const params = HttpUtils.toURLSearchParams(httpParams);
     return RawgApiHttpClient.get<ResponseWithPagination<Game>>(`${this.apiEndpoint}`, { params }).then(
-      (response) => response.data
+      response => response.data
     );
   };
 }

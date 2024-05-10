@@ -1,1 +1,1 @@
-export type HttpParams = Record<string, string | string[] | number | number[] | boolean | Date | undefined>;
+export type HttpParams = Record<string, Date | boolean | number | number[] | string | string[] | undefined>;

@@ -8,10 +8,10 @@ export abstract class HttpUtils {
 
     const searchParams = new URLSearchParams();
 
-    Object.keys(params).forEach((paramKey) => {
+    for (const paramKey of Object.keys(params)) {
       let value = params[paramKey];
       if (value === undefined || value === '') {
-        return;
+        continue;
       }
 
       if (typeof value === 'boolean') {
@@ -19,13 +19,13 @@ export abstract class HttpUtils {
       }
 
       if (Array.isArray(value)) {
-        value.forEach((valueItem) => {
+        for (const valueItem of value) {
           searchParams.append(`${paramKey}[]`, valueItem.toString());
-        });
+        }
       } else {
         searchParams.append(paramKey, value.toString());
       }
-    });
+    }
 
     return searchParams;
   };
