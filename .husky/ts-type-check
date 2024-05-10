@@ -1,0 +1,30 @@
+# Start TypeScript type-check in the background
+npx tsc --noEmit &
+PID=$!
+
+green='\033[0;32m'
+blue='\033[0;34m'
+reset='\033[0m'
+
+# Animation frames with blue color
+frames=("$blue ⣾ $reset" "$blue ⣽ $reset" "$blue ⣻ $reset" "$blue ⢿ $reset" "$blue ⡿ $reset" "$blue ⣟ $reset" "$blue ⣯ $reset" "$blue ⣷ $reset")
+
+# Use a loop to display the animation while the TypeScript type-check is running
+while kill -0 $PID 2> /dev/null; do
+  for frame in "${frames[@]}"; do
+    printf "\r$frame TypeScript type-checking..."
+    sleep 0.1
+  done
+done
+
+# Wait for the TypeScript type-check to finish and capture the exit code
+wait $PID
+EXIT_CODE=$?
+
+# Check if the process was successful
+if [ $EXIT_CODE -eq 0 ]; then
+  echo -e "${green}✔${reset} TypeScript type-checking..."
+else
+  echo "TypeScript type-check failed with exit code $EXIT_CODE."
+  exit $EXIT_CODE
+fi
