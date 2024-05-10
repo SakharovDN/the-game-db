@@ -1,13 +1,10 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "../store-config";
-import { HomeState } from "./home.slice";
+import { createSelector } from '@reduxjs/toolkit';
 
-const selectHomeState: (state: RootState) => HomeState = (state) =>
-  state.homeState;
+import { RootState } from '../store-config';
+import { HomeState } from './home.slice';
 
-const selectNewReleases = createSelector(
-  selectHomeState,
-  (state) => state.newReleases
-);
+const selectHomeState: (state: RootState) => HomeState = state => state.homeState;
+
+const selectNewReleases = createSelector(selectHomeState, state => state.newReleases);
 
 export const homeSelectors = { selectNewReleases };

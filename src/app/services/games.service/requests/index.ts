@@ -1,1 +1,1 @@
-export * from "./get-games.request";
+export * from './get-games.request';

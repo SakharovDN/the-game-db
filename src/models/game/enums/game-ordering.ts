@@ -1,9 +1,9 @@
 export enum GameOrdering {
-  Name = "name",
-  Released = "released",
-  Added = "added",
-  Created = "created",
-  Updated = "updated",
-  Rating = "rating",
-  Metacritic = "metacritic",
+	Added = 'added',
+	Created = 'created',
+	Metacritic = 'metacritic',
+	Name = 'name',
+	Rating = 'rating',
+	Released = 'released',
+	Updated = 'updated',
 }

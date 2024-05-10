@@ -1,16 +1,16 @@
-import { ReactNode } from "react";
-import { Helmet } from "react-helmet-async";
+import { ReactNode } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface PageProps {
-  title: string;
-  children?: ReactNode;
+	children?: ReactNode;
+	title: string;
 }
 
-export const Page = ({ title, children }: PageProps) => {
-  return (
-    <>
-      <Helmet title={title} />
-      {children}
-    </>
-  );
+export const Page = ({ children, title }: PageProps) => {
+	return (
+		<>
+			<Helmet title={title} />
+			{children}
+		</>
+	);
 };

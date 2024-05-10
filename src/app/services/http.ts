@@ -1,118 +1,93 @@
-import Axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  RawAxiosRequestConfig,
-} from "axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestConfig } from 'axios';
 
-import { environment } from "../../environment";
+import { environment } from '../../environment';
 
 export interface CustomAxiosRequestConfig extends RawAxiosRequestConfig {
-  unknownErrorCode?: string;
-  acceptableErrorCodes?: string[];
-  params?: any;
+	acceptableErrorCodes?: string[];
+	params?: any;
+	unknownErrorCode?: string;
 }
-
 export type HttpHeaders = Record<string, string>;
-export type Fulfilled<V = any> = (value: V) => V | Promise<V>;
-export type Rejected<V = any> = (
-  err: AxiosError | any
-) => Promise<AxiosResponse<V>> | any | Error;
+export type Fulfilled<V = any> = (value: V) => Promise<V> | V;
+export type Rejected<V = any> = (error: AxiosError | any) => Error | Promise<AxiosResponse<V>> | any;
 export type RequestInterceptor<TNewResponse = any> = {
-  onFulfilled: Fulfilled<AxiosRequestConfig>;
-  onRejected: Rejected<TNewResponse>;
+	onFulfilled: Fulfilled<AxiosRequestConfig>;
+	onRejected: Rejected<TNewResponse>;
 };
 export type ResponseInterceptor<TResponse = any, TNewResponse = any> = {
-  onFulfilled: Fulfilled<AxiosResponse<TResponse>>;
-  onRejected: Rejected<TNewResponse>;
+	onFulfilled: Fulfilled<AxiosResponse<TResponse>>;
+	onRejected: Rejected<TNewResponse>;
 };
 
 export class HttpServiceImpl {
-  private readonly baseUrl: string;
-  private _client!: AxiosInstance;
-  responseInterceptors: ResponseInterceptor[] = [];
-  requestInterceptors: RequestInterceptor[] = [];
+	private _client!: AxiosInstance;
+	private readonly baseUrl: string;
 
-  constructor(baseUrl: string) {
-    this.baseUrl = baseUrl;
-  }
+	addRequestInterceptor = ({ onFulfilled, onRejected }: RequestInterceptor) => {
+		this.requestInterceptors.push({ onFulfilled, onRejected });
+	};
 
-  setUp() {
-    this._client = Axios.create(this.mergeConfig());
-    for (const x of this.requestInterceptors) {
-      // @ts-ignore
-      this._client.interceptors.request.use(x.onFulfilled, x.onRejected);
-    }
+	addResponseInterceptor = ({ onFulfilled, onRejected }: ResponseInterceptor) => {
+		this.responseInterceptors.push({ onFulfilled, onRejected });
+	};
 
-    for (const x of this.responseInterceptors) {
-      this._client.interceptors.response.use(x.onFulfilled, x.onRejected);
-    }
-  }
+	requestInterceptors: RequestInterceptor[] = [];
 
-  addResponseInterceptor = ({
-    onFulfilled,
-    onRejected,
-  }: ResponseInterceptor) => {
-    this.responseInterceptors.push({ onFulfilled, onRejected });
-  };
+	responseInterceptors: ResponseInterceptor[] = [];
 
-  addRequestInterceptor = ({ onFulfilled, onRejected }: RequestInterceptor) => {
-    this.requestInterceptors.push({ onFulfilled, onRejected });
-  };
+	constructor(baseUrl: string) {
+		this.baseUrl = baseUrl;
+	}
 
-  fromConfig<T = any>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    return this._client.request(this.mergeConfig(config));
-  }
+	private mergeConfig(config?: CustomAxiosRequestConfig) {
+		return {
+			...config,
+			baseURL: this.baseUrl,
+			headers: {
+				...config?.headers,
+			},
+			withCredentials: true,
+		} as CustomAxiosRequestConfig;
+	}
 
-  get<ResponseType>(url: string, config?: CustomAxiosRequestConfig) {
-    return this._client.get<ResponseType>(url, this.mergeConfig(config));
-  }
+	delete<ResponseType>(url: string, config?: CustomAxiosRequestConfig) {
+		return this._client.delete<ResponseType>(url, this.mergeConfig(config));
+	}
 
-  post<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
-    return this._client.post<ResponseType>(url, body, this.mergeConfig(config));
-  }
+	fromConfig<T = any>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+		return this._client.request(this.mergeConfig(config));
+	}
 
-  put<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
-    return this._client.put<ResponseType>(url, body, this.mergeConfig(config));
-  }
+	get<ResponseType>(url: string, config?: CustomAxiosRequestConfig) {
+		return this._client.get<ResponseType>(url, this.mergeConfig(config));
+	}
 
-  patch<ResponseType>(
-    url: string,
-    body?: any,
-    config?: CustomAxiosRequestConfig
-  ) {
-    return this._client.patch<ResponseType>(
-      url,
-      body,
-      this.mergeConfig(config)
-    );
-  }
+	patch<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
+		return this._client.patch<ResponseType>(url, body, this.mergeConfig(config));
+	}
 
-  delete<ResponseType>(url: string, config?: CustomAxiosRequestConfig) {
-    return this._client.delete<ResponseType>(url, this.mergeConfig(config));
-  }
+	post<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
+		return this._client.post<ResponseType>(url, body, this.mergeConfig(config));
+	}
 
-  private mergeConfig(config?: CustomAxiosRequestConfig) {
-    return {
-      ...config,
-      headers: {
-        ...config?.headers,
-      },
-      withCredentials: true,
-      baseURL: this.baseUrl,
-    } as CustomAxiosRequestConfig;
-  }
+	put<ResponseType>(url: string, body?: any, config?: CustomAxiosRequestConfig) {
+		return this._client.put<ResponseType>(url, body, this.mergeConfig(config));
+	}
+
+	setUp() {
+		this._client = Axios.create(this.mergeConfig());
+		for (const x of this.requestInterceptors) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			this._client.interceptors.request.use(x.onFulfilled, x.onRejected);
+		}
+
+		for (const x of this.responseInterceptors) {
+			this._client.interceptors.response.use(x.onFulfilled, x.onRejected);
+		}
+	}
 }
 
-export const RawgApiHttpClient = new HttpServiceImpl(
-  environment.rawgApiBaseUrl
-);
+export const RawgApiHttpClient = new HttpServiceImpl(environment.rawgApiBaseUrl);
+/*eslint-enable @typescript-eslint/no-explicit-any */
