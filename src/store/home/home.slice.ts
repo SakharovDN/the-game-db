@@ -1,6 +1,6 @@
+import { Game } from '@models/game';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Game } from '../../models/game';
 import { HOME_STORE_NAME, getNewReleases } from './home.thunks';
 
 export interface HomeState {

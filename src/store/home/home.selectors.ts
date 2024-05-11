@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from '@store/store-config';
 
-import { RootState } from '../store-config';
 import { HomeState } from './home.slice';
 
 const selectHomeState: (state: RootState) => HomeState = state => state.homeState;

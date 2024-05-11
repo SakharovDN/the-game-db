@@ -1,8 +1,8 @@
+import { Page } from '@components/shared';
+import { WorkInProgress } from '@components/work-in-progress';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Page } from '../../components/shared/page';
-import { WorkInProgress } from '../../components/work-in-progress';
 import './style.scss';
 
 export const HomePage = () => {

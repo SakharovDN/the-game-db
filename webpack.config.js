@@ -3,7 +3,6 @@
 const path = require('node:path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = env => {
@@ -59,10 +58,23 @@ module.exports = env => {
 				template: path.join(__dirname, 'public/index.html'),
 			}),
 			new Dotenv({ path: `./.env.${envMode}` }),
-			...(isProduction ? [new MiniCssExtractPlugin(), new WorkboxWebpackPlugin.GenerateSW()] : []),
+			...(isProduction ? [new MiniCssExtractPlugin()] : []),
 		],
 		resolve: {
 			extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+			alias: {
+				'@types': path.resolve(__dirname, '@src/types/'),
+				'@components': path.resolve(__dirname, 'src/app/components/'),
+				'@pages': path.resolve(__dirname, 'src/app/pages/'),
+				'@services': path.resolve(__dirname, 'src/app/services/'),
+				'@helpers': path.resolve(__dirname, 'src/helpers'),
+				'@models': path.resolve(__dirname, 'src/models/'),
+				'@store': path.resolve(__dirname, 'src/store/'),
+				'@src': path.resolve(__dirname, 'src/'),
+			},
+		},
+		performance: {
+			hints: false,
 		},
 	};
 };
