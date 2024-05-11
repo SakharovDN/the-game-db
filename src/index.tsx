@@ -4,6 +4,7 @@ import { Provider, useDispatch } from 'react-redux';
 
 import App from './app';
 import { setupInterceptors } from './app/services/interceptors';
+import './i18n';
 import { configureAppStore } from './store/store-config';
 
 setupInterceptors();
