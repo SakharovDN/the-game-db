@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Page } from '../../components/shared/page';
 import { WorkInProgress } from '../../components/work-in-progress';
 import './style.scss';
 
 export const HomePage = () => {
+	const { t } = useTranslation('home-page');
 	// const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -14,7 +16,7 @@ export const HomePage = () => {
 	// const newReleases = useSelector(homeSelectors.selectNewReleases);
 
 	return (
-		<Page title={'Home'}>
+		<Page title={t('title')}>
 			<div className={'home-page'}>
 				<WorkInProgress />
 			</div>

@@ -1,4 +1,4 @@
-import { HttpParams } from '../../types/http-types';
+import { HttpParams } from '../../../@types/http-types';
 
 export interface RequestWithPagination extends HttpParams {
 	page: number;

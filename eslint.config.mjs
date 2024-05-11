@@ -19,7 +19,6 @@ import tseslint from 'typescript-eslint';
 
 export default [
 	{
-		ignores: ['coverage*', 'node_modules'],
 		languageOptions: { globals: globals.browser },
 		linterOptions: { reportUnusedDisableDirectives: 'error' },
 		settings: {
@@ -33,6 +32,7 @@ export default [
 	eslintPluginUnicorn.configs['flat/recommended'],
 	{
 		rules: {
+			'unicorn/no-null': 'off',
 			'unicorn/no-static-only-class': 'off',
 			'unicorn/prevent-abbreviations': 'off',
 		},
@@ -48,4 +48,5 @@ export default [
 	...eslintPluginJsonc.configs['flat/recommended-with-json'],
 	perfectionistNatural,
 	eslintPluginPrettierRecommended,
+	{ ignores: ['coverage*', 'node_modules', '@types/resources.d.ts'] },
 ];
