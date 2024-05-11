@@ -1,4 +1,4 @@
-import { HttpParams } from '../../@types/http-types';
+import { HttpParams } from '@types';
 
 export abstract class HttpUtils {
 	static toURLSearchParams = <T extends HttpParams>(params?: T): URLSearchParams | undefined => {

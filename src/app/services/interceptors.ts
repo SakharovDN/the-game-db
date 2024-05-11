@@ -1,6 +1,6 @@
+import { environment } from '@src/environment';
 import { AxiosError } from 'axios';
 
-import { environment } from '../../environment';
 import { HttpServiceImpl, RawgApiHttpClient } from './http';
 
 const KEY_STRING = 'key';

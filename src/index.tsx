@@ -1,11 +1,11 @@
+import { setupInterceptors } from '@services/interceptors';
+import { configureAppStore } from '@store/store-config';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider, useDispatch } from 'react-redux';
 
 import App from './app';
-import { setupInterceptors } from './app/services/interceptors';
 import './i18n';
-import { configureAppStore } from './store/store-config';
 
 setupInterceptors();
 const store = configureAppStore();

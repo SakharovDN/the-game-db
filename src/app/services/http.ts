@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { environment } from '@src/environment';
 import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestConfig } from 'axios';
-
-import { environment } from '../../environment';
 
 export interface CustomAxiosRequestConfig extends RawAxiosRequestConfig {
 	acceptableErrorCodes?: string[];

@@ -1,7 +1,8 @@
-import { HttpUtils } from '../../../helpers/http-utils';
-import { Game } from '../../../models/game';
-import { ResponseWithPagination } from '../../../models/responses';
-import { RawgApiHttpClient } from '../http';
+import { HttpUtils } from '@helpers';
+import { Game } from '@models/game';
+import { ResponseWithPagination } from '@models/responses';
+import { RawgApiHttpClient } from '@services/http';
+
 import { GetGamesRequest } from './requests';
 
 class GamesServiceImpl {

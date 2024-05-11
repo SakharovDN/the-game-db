@@ -48,5 +48,5 @@ export default [
 	...eslintPluginJsonc.configs['flat/recommended-with-json'],
 	perfectionistNatural,
 	eslintPluginPrettierRecommended,
-	{ ignores: ['coverage*', 'node_modules', '@types/resources.d.ts'] },
+	{ ignores: ['coverage*', 'node_modules', '@types/resources.d.ts', 'webpack.config.js', 'build'] },
 ];

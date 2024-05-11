@@ -3,7 +3,11 @@
  */
 interface Resources {
   "home-page": {
-    "title": "Home"
+    "title": "The Game DB"
+  },
+  "languages": {
+    "en": "English",
+    "ru": "Русский"
   }
 }
 
