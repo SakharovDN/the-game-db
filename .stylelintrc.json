@@ -4,5 +4,6 @@
 		"stylelint-config-standard-scss",
 		"stylelint-config-recess-order",
 		"stylelint-config-sass-guidelines"
-	]
+	],
+	"ignoreFiles": ["build/**/*.css"]
 }
