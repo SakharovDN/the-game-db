@@ -89,4 +89,3 @@ export class HttpServiceImpl {
 }
 
 export const RawgApiHttpClient = new HttpServiceImpl(environment.rawgApiBaseUrl);
-/*eslint-enable @typescript-eslint/no-explicit-any */

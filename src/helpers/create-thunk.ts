@@ -20,4 +20,3 @@ export const getCreateThunk =
 const createActionName = (storeName: string, actionName: string) => {
 	return `[${storeName}] ${actionName}`;
 };
-/* eslint-enable @typescript-eslint/no-explicit-any */
