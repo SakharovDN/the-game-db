@@ -1,7 +1,7 @@
 import { HttpUtils } from '@helpers';
 import { Game } from '@models/game';
-import { ResponseWithPagination } from '@models/responses';
 import { RawgApiHttpClient } from '@services/http';
+import { ResponseWithPagination } from '@types';
 
 import { GetGamesRequest } from './requests';
 
