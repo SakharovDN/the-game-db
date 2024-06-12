@@ -1,0 +1,149 @@
+%default-text {
+	color: var(--text-01);
+}
+
+.heading-1 {
+	@extend %default-text;
+
+	font-size: 50px;
+	font-weight: 800;
+	line-height: 56px;
+	text-align: left;
+}
+
+.heading-2 {
+	@extend %default-text;
+
+	font-size: 44px;
+	font-weight: 800;
+	line-height: 48px;
+	text-align: left;
+}
+
+.heading-3 {
+	@extend %default-text;
+
+	font-size: 36px;
+	font-weight: 800;
+	line-height: 40px;
+	text-align: left;
+}
+
+.heading-4 {
+	@extend %default-text;
+
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 32px;
+	text-align: left;
+}
+
+.heading-5 {
+	@extend %default-text;
+
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 28px;
+	text-align: left;
+}
+
+.heading-6 {
+	@extend %default-text;
+
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 24px;
+	text-align: left;
+}
+
+.body-xl-bold {
+	@extend %default-text;
+
+	font-size: 19px;
+	font-weight: 800;
+	line-height: 28px;
+	text-align: left;
+}
+
+.body-xl {
+	@extend %default-text;
+
+	font-size: 19px;
+	font-weight: 500;
+	line-height: 28px;
+	text-align: left;
+}
+
+.body-l-bold {
+	@extend %default-text;
+
+	font-size: 17px;
+	font-weight: 800;
+	line-height: 28px;
+	text-align: left;
+}
+
+.body-l {
+	@extend %default-text;
+
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 28px;
+	text-align: left;
+}
+
+.body-m-bold {
+	@extend %default-text;
+
+	font-size: 15px;
+	font-weight: 800;
+	line-height: 24px;
+	text-align: left;
+}
+
+.body-m {
+	@extend %default-text;
+
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 24px;
+	text-align: left;
+}
+
+.body-s-bold {
+	@extend %default-text;
+
+	font-size: 13px;
+	font-weight: 800;
+	line-height: 20px;
+	text-align: left;
+}
+
+.body-s {
+	@extend %default-text;
+
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: left;
+}
+
+.body-xs-bold {
+	@extend %default-text;
+
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 16px;
+	text-align: left;
+	letter-spacing: 0.4px;
+}
+
+.body-xs {
+	@extend %default-text;
+
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 16px;
+	text-align: left;
+	letter-spacing: 0.4px;
+}

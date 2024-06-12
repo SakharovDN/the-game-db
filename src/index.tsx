@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Provider, useDispatch } from 'react-redux';
 
 import App from './app';
+import './app/styles/global-styles.scss';
+import './app/styles/colors.scss';
 import './i18n';
 
 setupInterceptors();
