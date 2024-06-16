@@ -1,9 +1,9 @@
 {
-	"extends": [
-		"stylelint-config-standard",
-		"stylelint-config-standard-scss",
-		"stylelint-config-recess-order",
-		"stylelint-config-sass-guidelines"
-	],
-	"ignoreFiles": ["build/**/*.css"]
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order",
+    "stylelint-config-sass-guidelines"
+  ],
+  "ignoreFiles": ["dist/**/*.css"]
 }

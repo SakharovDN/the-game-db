@@ -7,5 +7,5 @@ export const HOME_STORE_NAME = 'home-state';
 const createThunk = getCreateThunk(HOME_STORE_NAME);
 
 export const getNewReleases = createThunk('get new releases', (request: GetGamesRequest) =>
-	GamesService.getGames({ ...request, ordering: GameOrdering.Released })
+  GamesService.getGames({ ...request, ordering: GameOrdering.Released })
 );
