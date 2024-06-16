@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  height: min-content;
+
+  .the {
+    color: var(--base-accent-hover);
+  }
+
+  .game {
+    color: var(--base-accent);
+  }
+
+  .db {
+    color: var(--base-accent-active);
+  }
+}
