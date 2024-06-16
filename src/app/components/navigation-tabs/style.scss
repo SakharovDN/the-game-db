@@ -1,0 +1,27 @@
+.navigation-content {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 100%;
+
+  .navigation-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: all 0.3s;
+  }
+
+  .navigation-tab.active {
+    box-shadow: inset 0 -2px var(--blue-400);
+  }
+
+  .navigation-tab-text {
+    color: var(--text-02);
+  }
+
+  .navigation-tab-text.active {
+    color: var(--text-01);
+  }
+}

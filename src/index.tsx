@@ -5,7 +5,7 @@ import { setupInterceptors } from '@services/interceptors';
 import { configureAppStore } from '@store/store-config';
 import ReactDOM from 'react-dom/client';
 
-import App from './app';
+import { App } from './app';
 
 import './app/styles/colors.scss';
 import './app/styles/global-styles.scss';

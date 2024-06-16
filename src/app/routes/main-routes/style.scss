@@ -1,0 +1,12 @@
+.main-routes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray-50);
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+  }
+}
