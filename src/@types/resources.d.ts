@@ -14,6 +14,11 @@ interface Resources {
   "languages": {
     "en": "English",
     "ru": "Русский"
+  },
+  "select": {
+    "loading": "Loading...",
+    "no-options": "No options",
+    "select": "Select..."
   }
 }
 

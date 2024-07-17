@@ -20,6 +20,8 @@ export enum IconName {
   Close = 'close',
   SearchLarge = 'search-large',
   Search = 'search',
+  ChevronDownLarge = 'chevron-down-large',
+  ChevronDown = 'chevron-down',
 }
 
 interface IconProps {
