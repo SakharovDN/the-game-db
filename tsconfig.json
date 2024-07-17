@@ -26,6 +26,7 @@
       "@pages/*": ["./src/app/pages/*"],
       "@routes/*": ["./src/app/routes/*"],
       "@styles/*": ["./src/app/styles/*"],
+      "@hooks": ["./src/app/hooks"],
       "@services/*": ["./src/services/*"],
       "@helpers": ["./src/helpers"],
       "@models/*": ["./src/models/*"],
