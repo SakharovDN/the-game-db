@@ -10,6 +10,8 @@ const MEDIUM_SIZE = 16;
 export enum IconName {
   CheckCircleLarge = 'check-circle-large',
   CheckCircle = 'check-circle',
+  CheckLarge = 'check-large',
+  Check = 'check',
 }
 
 interface IconProps {
