@@ -1,5 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '@store/store-config';
+
+import { RootState } from '..';
 
 import { HomeState } from './home.slice';
 

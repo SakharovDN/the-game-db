@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { RoutePath } from '../../routes/route-paths/route-path';
+import { RoutePath } from '@routes/route-paths';
 
 import { NavigationTab } from './components/navigation-tab';
 
