@@ -27,6 +27,7 @@ export default [
   {
     rules: {
       'perfectionist/sort-enums': 'off',
+      'perfectionist/sort-objects': 'off',
       'perfectionist/sort-imports': [
         'error',
         {

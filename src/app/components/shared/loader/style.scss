@@ -1,0 +1,49 @@
+@use 'sass:math';
+
+$circumference: calc(math.$pi * var(--size));
+
+.loader {
+  position: absolute;
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  max-width: var(--size);
+  animation: 1s linear infinite svg-animation;
+
+  .loader-circle {
+    display: block;
+    fill: transparent;
+    stroke: var(--color);
+    stroke-dasharray: $circumference;
+    stroke-linecap: round;
+    stroke-width: var(--thickness);
+    transform-origin: 50% 50%;
+    animation: 3s ease-in-out infinite both circle-animation;
+  }
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle-animation {
+  0% {
+    stroke-dashoffset: $circumference;
+    transform: rotate(0);
+  }
+
+  50% {
+    stroke-dashoffset: calc($circumference / 4);
+    transform: rotate(90deg);
+  }
+
+  100% {
+    stroke-dashoffset: $circumference;
+    transform: rotate(360deg);
+  }
+}
