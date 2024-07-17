@@ -1,0 +1,95 @@
+@mixin button-appearance($bg-color, $hover-color, $active-color, $content-color) {
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:active {
+    background-color: $active-color;
+  }
+
+  &:disabled {
+    background-color: $bg-color;
+    opacity: 0.56;
+  }
+
+  .button-text,
+  .button-icon {
+    color: $content-color;
+  }
+}
+
+@mixin button-size($height, $padding, $text-padding) {
+  height: $height;
+  padding: $padding;
+
+  .button-text {
+    padding: $text-padding;
+  }
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border-radius: 12px;
+  transition: all 0.2s;
+
+  &.primary {
+    @include button-appearance(
+      var(--base-primary),
+      var(--base-primary-hover),
+      var(--base-primary-active),
+      var(--base-01)
+    );
+  }
+
+  &.accent {
+    @include button-appearance(var(--base-accent), var(--base-accent-hover), var(--base-accent-active), var(--base-01));
+  }
+
+  &.secondary {
+    @include button-appearance(
+      var(--base-secondary),
+      var(--base-secondary-hover),
+      var(--base-secondary-active),
+      var(--text-link)
+    );
+  }
+
+  &.flat {
+    @include button-appearance(transparent, var(--base-secondary), var(--base-secondary-hover), var(--text-link));
+  }
+
+  &.outline {
+    @include button-appearance(transparent, var(--base-secondary), var(--base-secondary-hover), var(--text-link));
+
+    border: 1px solid var(--base-04);
+  }
+
+  &.l {
+    @include button-size(56px, 16px, 0 8px);
+  }
+
+  &.m {
+    @include button-size(44px, 10px, 0 8px);
+  }
+
+  &.s {
+    @include button-size(32px, 6px 8px, 0 4px);
+  }
+
+  &.xs {
+    @include button-size(24px, 4px, 0 4px);
+  }
+
+  &.loading {
+    .button-text,
+    .button-icon {
+      opacity: 0;
+    }
+  }
+}
