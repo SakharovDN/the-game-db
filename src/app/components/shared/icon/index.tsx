@@ -12,6 +12,14 @@ export enum IconName {
   CheckCircle = 'check-circle',
   CheckLarge = 'check-large',
   Check = 'check',
+  EyeOpenLarge = 'eye-open-large',
+  EyeOpen = 'eye-open',
+  EyeClosedLarge = 'eye-closed-large',
+  EyeClosed = 'eye-closed',
+  CloseLarge = 'close-large',
+  Close = 'close',
+  SearchLarge = 'search-large',
+  Search = 'search',
 }
 
 interface IconProps {
