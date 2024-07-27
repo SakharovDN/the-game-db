@@ -5,6 +5,6 @@
     "stylelint-config-recess-order",
     "stylelint-config-sass-guidelines"
   ],
-  "rules": { "max-nesting-depth": null },
+  "rules": { "max-nesting-depth": null, "selector-max-compound-selectors": null },
   "ignoreFiles": ["dist/**/*.css"]
 }

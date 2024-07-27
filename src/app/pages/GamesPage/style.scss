@@ -1,6 +1,27 @@
 .games-page {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
   justify-content: center;
+  padding: 32px;
+  overflow: hidden;
   background-color: var(--base-01);
+
+  .container-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 32px;
+    overflow-x: scroll;
+    background-color: var(--base-02);
+    border: 1px solid var(--base-03);
+    border-radius: 16px;
+
+    .games-row {
+      display: flex;
+      gap: 24px;
+    }
+  }
 }
