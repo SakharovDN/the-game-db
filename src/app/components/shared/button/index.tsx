@@ -9,9 +9,9 @@ import { BodyMBold, BodySBold } from '../typography';
 
 import './style.scss';
 
-type ButtonSize = 'l' | 'm' | 's' | 'xs';
+export type ButtonSize = 'l' | 'm' | 's' | 'xs';
 
-type ButtonAppearance = 'accent' | 'flat' | 'outline' | 'primary' | 'secondary';
+export type ButtonAppearance = 'accent' | 'flat' | 'outline' | 'primary' | 'secondary';
 
 export interface ButtonProps {
   appearance?: ButtonAppearance;

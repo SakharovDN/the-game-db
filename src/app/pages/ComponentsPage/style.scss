@@ -1,0 +1,54 @@
+.components-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--base-01);
+
+  .text-styles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .loaders {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .loaders-row {
+      display: flex;
+      gap: 2px;
+    }
+
+    .loader-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .buttons-row {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .inputs-row {
+      display: flex;
+      gap: 12px;
+      padding: 2px;
+    }
+  }
+}
