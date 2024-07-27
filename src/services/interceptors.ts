@@ -25,10 +25,8 @@ const setInterceptor = (
       }
 
       if (options?.apiKey) {
-        config.params = {
-          ...config.params,
-          [options.apiKey.key]: options.apiKey.value,
-        };
+        const params = config.params as URLSearchParams;
+        params.append(options.apiKey.key, options.apiKey.value);
       }
 
       return config;

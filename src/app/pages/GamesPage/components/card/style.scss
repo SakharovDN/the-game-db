@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 234px;
+  min-height: 247px;
+  padding: 8px;
+  background-color: var(--base-04);
+  border-radius: 12px;
+
+  .card-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}

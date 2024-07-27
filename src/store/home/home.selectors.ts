@@ -7,5 +7,6 @@ import { HomeState } from './home.slice';
 const selectHomeState: (state: RootState) => HomeState = state => state.homeState;
 
 const selectNewReleases = createSelector(selectHomeState, state => state.newReleases);
+const selectTopRated = createSelector(selectHomeState, state => state.topRated);
 
-export const homeSelectors = { selectNewReleases };
+export const homeSelectors = { selectNewReleases, selectTopRated };
