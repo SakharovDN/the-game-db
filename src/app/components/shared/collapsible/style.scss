@@ -1,0 +1,46 @@
+.collapsible-content {
+  width: 100%;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: space-between;
+  padding: 7px 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.rotate-center {
+  transition: all 0.2s linear;
+}
+
+.rotate-center.down {
+  transform: rotate(0deg);
+}
+
+.rotate-center.up {
+  transform: rotate(180deg);
+}
+
+.collapsible-icon-button {
+  display: flex;
+  overflow: hidden;
+  color: var(--white);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  border: 0;
+  outline: none;
+}
+
+.title-text {
+  color: var(--white);
+}
+
+.collapsible-card {
+  transition: 0.3s;
+}

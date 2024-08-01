@@ -17,7 +17,7 @@ type InputProps = {
   placeholder?: string;
   size?: InputSize;
   type?: 'number' | 'password' | 'search';
-  value: number | string;
+  value?: number | string;
 };
 
 export const Input = ({ label, type, size = 'm', disabled, placeholder, value, onChange, error }: InputProps) => {

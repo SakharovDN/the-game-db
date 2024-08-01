@@ -37,8 +37,8 @@ const sections: NavigationSection[] = [
     path: RoutePath.Games,
   },
   {
-    name: 'Developers',
-    path: RoutePath.Developers,
+    name: 'Components',
+    path: RoutePath.Components,
   },
   {
     name: 'Creators',
