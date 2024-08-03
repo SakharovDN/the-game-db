@@ -1,7 +1,8 @@
 {
   "name": "the-game-db",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "homepage": "https://sakharovdn.github.io/the-game-db",
   "type": "module",
   "scripts": {
     "start": "vite --port 3000 --host",
