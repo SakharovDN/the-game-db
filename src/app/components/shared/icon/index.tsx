@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react';
 
+import { environment } from '@src/environment';
 import classNames from 'classnames';
 
 import './style.scss';
@@ -40,7 +41,7 @@ export const Icon = ({ className, name, onClick }: IconProps) => {
       onClick={onClick}
       style={{ minWidth: size, minHeight: size }}
       width={size}>
-      <use xlinkHref={`assets/icons.svg#${name}`} />
+      <use xlinkHref={`${environment.baseUrl}assets/icons.svg#${name}`} />
     </svg>
   );
 };
