@@ -4,5 +4,6 @@ export * from './icon';
 export * from './input';
 export * from './loader';
 export * from './page';
+export * from './radio-button';
 export * from './select';
 export * from './typography';
