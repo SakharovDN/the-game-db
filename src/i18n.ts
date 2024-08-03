@@ -4,6 +4,8 @@ import i18n from 'i18next';
 import HttpBackend from 'i18next-http-backend';
 import ICU from 'i18next-icu';
 
+import { environment } from './environment';
+
 export enum Language {
   En = 'en',
   Ru = 'ru',
@@ -15,7 +17,7 @@ i18n
   .use(HttpBackend)
   .init({
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${environment.baseUrl}locales/{{lng}}/{{ns}}.json`,
     },
     debug: true,
     defaultNS: 'languages',
