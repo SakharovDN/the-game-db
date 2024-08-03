@@ -1,0 +1,161 @@
+$toggle-size-m: 24px;
+$knob-size-m: 16px;
+$off-size-m: 12px;
+$toggle-size-s: 16px;
+$knob-size-s: 12px;
+$off-size-s: 8px;
+
+.toggle {
+  position: relative;
+  display: flex;
+  width: max-content;
+
+  &.m {
+    gap: 12px;
+  }
+
+  &.s {
+    gap: 8px;
+  }
+
+  .toggle-label {
+    user-select: none;
+  }
+
+  &.s .toggle-label {
+    line-height: 16px;
+    letter-spacing: 0.04px;
+  }
+
+  .toggle-input {
+    position: relative;
+    appearance: none;
+    background-color: var(--base-secondary);
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--base-secondary-hover);
+    }
+
+    &:active {
+      background-color: var(--base-secondary-active);
+    }
+
+    &:disabled {
+      background-color: var(--base-secondary);
+      opacity: 0.56;
+
+      .toggle-label {
+        color: var(--text-02);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      border-radius: 50%;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: var(--base-01);
+      border-radius: 50%;
+      opacity: 1;
+      transition: all 0.2s;
+    }
+  }
+
+  &.m .toggle-input {
+    width: calc($toggle-size-m * 2);
+    height: $toggle-size-m;
+    border-radius: $toggle-size-m;
+  }
+
+  &.s .toggle-input {
+    width: calc($toggle-size-s * 2);
+    height: $toggle-size-s;
+    border-radius: $toggle-size-s;
+  }
+
+  .toggle-input:checked {
+    background-color: var(--base-primary);
+
+    &:hover {
+      background-color: var(--base-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--base-primary-active);
+    }
+
+    &:disabled {
+      background-color: var(--base-primary);
+    }
+  }
+
+  &.m .toggle-input::after {
+    top: calc(($toggle-size-m - $knob-size-m) / 2);
+    left: calc(($toggle-size-m - $knob-size-m) / 2);
+    width: $knob-size-m;
+    height: $knob-size-m;
+  }
+
+  &.s .toggle-input::after {
+    top: calc(($toggle-size-s - $knob-size-s) / 2);
+    left: calc(($toggle-size-s - $knob-size-s) / 2);
+    width: $knob-size-s;
+    height: $knob-size-s;
+  }
+
+  &.m .toggle-input::before {
+    top: calc(($toggle-size-m - $off-size-m) / 2);
+    right: calc(($toggle-size-m - $off-size-m) / 2);
+    width: $off-size-m;
+    height: $off-size-m;
+    border: 2px solid var(--base-06);
+  }
+
+  &.s .toggle-input::before {
+    top: calc(($toggle-size-s - $off-size-s) / 2);
+    right: calc(($toggle-size-s - $off-size-s) / 2);
+    width: $off-size-s;
+    height: $off-size-s;
+    border: 1px solid var(--base-06);
+  }
+
+  &.m .toggle-input:checked {
+    &::after {
+      transform: translate($toggle-size-m);
+    }
+  }
+
+  &.s .toggle-input:checked {
+    &::after {
+      transform: translate($toggle-size-s);
+    }
+  }
+
+  .toggle-checked-icon {
+    position: absolute;
+    color: var(--base-01);
+    opacity: 0;
+  }
+
+  .toggle-input:checked + .toggle-checked-icon {
+    opacity: 1;
+    animation: appear 0.2s ease-in-out forwards;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

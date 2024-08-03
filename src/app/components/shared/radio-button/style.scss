@@ -1,0 +1,117 @@
+$outer-size-m: 24px;
+$inner-size-m: 12px;
+$outer-size-s: 16px;
+$inner-size-s: 8px;
+
+.radio {
+  position: relative;
+  display: flex;
+  width: max-content;
+
+  &.m {
+    gap: 12px;
+  }
+
+  &.s {
+    gap: 8px;
+  }
+
+  .radio-label {
+    user-select: none;
+  }
+
+  &.s .radio-label {
+    line-height: 16px;
+    letter-spacing: 0.04px;
+  }
+
+  .radio-input {
+    position: relative;
+    appearance: none;
+    background-color: var(--base-secondary);
+    border-radius: 50%;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--base-secondary-hover);
+    }
+
+    &:active {
+      background-color: var(--base-secondary-active);
+    }
+
+    &:disabled {
+      background-color: var(--base-secondary);
+      opacity: 0.56;
+
+      .radio-label {
+        color: var(--text-02);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      background-color: var(--base-01);
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
+
+  &.m .radio-input {
+    width: $outer-size-m;
+    height: $outer-size-m;
+
+    &::before {
+      top: calc(($outer-size-m - $inner-size-m) / 2);
+      left: calc(($outer-size-m - $inner-size-m) / 2);
+      width: $inner-size-m;
+      height: $inner-size-m;
+    }
+  }
+
+  &.s .radio-input {
+    width: $outer-size-s;
+    height: $outer-size-s;
+
+    &::before {
+      top: calc(($outer-size-s - $inner-size-s) / 2);
+      left: calc(($outer-size-s - $inner-size-s) / 2);
+      width: $inner-size-s;
+      height: $inner-size-s;
+    }
+  }
+
+  .radio-input:checked {
+    background-color: var(--base-primary);
+
+    &:hover {
+      background-color: var(--base-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--base-primary-active);
+    }
+
+    &:disabled {
+      background-color: var(--base-primary);
+    }
+
+    &::before {
+      opacity: 1;
+      animation: appear 0.2s ease-in-out;
+    }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
