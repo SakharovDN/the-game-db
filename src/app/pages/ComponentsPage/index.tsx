@@ -19,7 +19,7 @@ export const ComponentsPage = () => {
       <Collapsible header={'Text Styles'}>
         <TextStyles />
       </Collapsible>
-      <Collapsible header={'Switches'} open>
+      <Collapsible header={'Switches'}>
         <Switches />
       </Collapsible>
       <Collapsible header={'Loader'}>
