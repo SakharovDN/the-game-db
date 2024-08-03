@@ -40,7 +40,7 @@ export const Icon = ({ className, name, onClick }: IconProps) => {
       onClick={onClick}
       style={{ minWidth: size, minHeight: size }}
       width={size}>
-      <use xlinkHref={`/assets/icons.svg#${name}`} />
+      <use xlinkHref={`assets/icons.svg#${name}`} />
     </svg>
   );
 };
