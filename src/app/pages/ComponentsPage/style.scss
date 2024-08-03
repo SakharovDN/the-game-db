@@ -11,6 +11,25 @@
     gap: 2px;
   }
 
+  .switches {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .switches-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .switch-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: min-content;
+      }
+    }
+  }
+
   .loaders {
     position: relative;
     display: flex;

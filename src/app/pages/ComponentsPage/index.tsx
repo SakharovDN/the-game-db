@@ -6,6 +6,7 @@ import { Collapsible } from '@components/shared/collapsible';
 import { Buttons } from './components/buttons';
 import { Inputs } from './components/inputs';
 import { Loaders } from './components/loaders';
+import { Switches } from './components/switches';
 import { TextStyles } from './components/text-styles';
 
 import './style.scss';
@@ -17,6 +18,9 @@ export const ComponentsPage = () => {
     <Page className={'components-page'} title={t('title')}>
       <Collapsible header={'Text Styles'}>
         <TextStyles />
+      </Collapsible>
+      <Collapsible header={'Switches'} open>
+        <Switches />
       </Collapsible>
       <Collapsible header={'Loader'}>
         <Loaders />
