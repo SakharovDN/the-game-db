@@ -70,4 +70,10 @@
       padding: 2px;
     }
   }
+
+  .dialog-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 }
