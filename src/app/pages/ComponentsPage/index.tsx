@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Page } from '@components/shared';
-import { Collapsible } from '@components/shared/collapsible';
+import { Accordion, Page } from '@components/shared';
 
 import { Buttons } from './components/buttons';
 import { Inputs } from './components/inputs';
@@ -16,21 +15,17 @@ export const ComponentsPage = () => {
 
   return (
     <Page className={'components-page'} title={t('title')}>
-      <Collapsible header={'Text Styles'}>
-        <TextStyles />
-      </Collapsible>
-      <Collapsible header={'Switches'}>
-        <Switches />
-      </Collapsible>
-      <Collapsible header={'Loader'}>
-        <Loaders />
-      </Collapsible>
-      <Collapsible header={'Buttons'}>
-        <Buttons />
-      </Collapsible>
-      <Collapsible header={'Inputs'}>
-        <Inputs />
-      </Collapsible>
+      <Accordion
+        items={[
+          { title: 'Text Styles', children: <TextStyles /> },
+          { title: 'Switches', children: <Switches /> },
+          { title: 'Loader', children: <Loaders /> },
+          { title: 'Buttons', children: <Buttons /> },
+          { title: 'Inputs', children: <Inputs /> },
+        ]}
+        size='l'
+        type={'block'}
+      />
     </Page>
   );
 };
