@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Accordion, Page } from '@components/shared';
 
 import { Buttons } from './components/buttons';
+import { Dialogs } from './components/dialogs';
 import { Inputs } from './components/inputs';
 import { Loaders } from './components/loaders';
 import { Switches } from './components/switches';
@@ -22,6 +23,7 @@ export const ComponentsPage = () => {
           { title: 'Loader', children: <Loaders /> },
           { title: 'Buttons', children: <Buttons /> },
           { title: 'Inputs', children: <Inputs /> },
+          { title: 'Dialogs', children: <Dialogs /> },
         ]}
         size='l'
         type={'block'}

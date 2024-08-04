@@ -1,0 +1,11 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--modal-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  overflow-y: auto;
+  background-color: #000000bf;
+}
