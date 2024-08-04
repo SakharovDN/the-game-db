@@ -1,0 +1,120 @@
+$lr-padding-size-l: 20px;
+$tb-padding-size-l: 16px;
+$lr-padding-size-m: 16px;
+$tb-padding-size-m: 12px;
+$lr-padding-size-s: 12px;
+$tb-padding-size-s: 8px;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+
+  &.block {
+    padding: 8px;
+    border: 1px solid var(--base-04);
+  }
+
+  &.card {
+    padding: 8px;
+    background-color: var(--base-01);
+    box-shadow: 0 4px 24px 0 #0000001f;
+  }
+}
+
+.accordion-item {
+  border-radius: 16px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--base-02);
+  }
+
+  &.l {
+    padding: 0 $lr-padding-size-l;
+  }
+
+  &.m {
+    padding: 0 $lr-padding-size-m;
+  }
+
+  &.s {
+    padding: 0 $lr-padding-size-s;
+  }
+
+  .accordion-item-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 16px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    .accordion-item-description {
+      color: var(--text-02);
+    }
+
+    .chevron-icon {
+      position: absolute;
+      top: calc(50% - 12px);
+      color: var(--text-03);
+      transition: all 0.2s;
+    }
+  }
+
+  .accordion-item-content {
+    overflow: hidden;
+    transition: 0.2s;
+  }
+
+  &:not(.collapsed) {
+    .chevron-icon {
+      transform: rotate(180deg);
+    }
+
+    &.l .accordion-item-content {
+      margin-bottom: $tb-padding-size-l;
+    }
+
+    &.m .accordion-item-content {
+      margin-bottom: $tb-padding-size-m;
+    }
+
+    &.s .accordion-item-content {
+      margin-bottom: $tb-padding-size-s;
+    }
+  }
+
+  &.l .accordion-item-header {
+    padding: $tb-padding-size-l 0;
+
+    .chevron-icon {
+      right: $lr-padding-size-l;
+    }
+  }
+
+  &.m .accordion-item-header {
+    padding: $tb-padding-size-m 0;
+
+    .chevron-icon {
+      right: $lr-padding-size-m;
+    }
+  }
+
+  &.s .accordion-item-header {
+    padding: $tb-padding-size-s 0;
+
+    .chevron-icon {
+      right: $lr-padding-size-s;
+    }
+  }
+
+  &:not(:last-child, :hover) {
+    &.collapsed {
+      .accordion-item-header {
+        box-shadow: 0 1px 0 0 var(--base-04);
+      }
+    }
+  }
+}
