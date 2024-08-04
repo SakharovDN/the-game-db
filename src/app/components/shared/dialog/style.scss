@@ -1,0 +1,40 @@
+.dialog {
+  display: flex;
+  flex-direction: column;
+
+  &.m {
+    width: 552px;
+  }
+
+  &.s {
+    width: 352px;
+  }
+
+  &.xs {
+    width: 272px;
+  }
+
+  .dialog-body {
+    margin: 16px 0 32px;
+
+    > :not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  &.xs .dialog-footer {
+    flex-direction: column-reverse;
+    width: 100%;
+
+    .cancel-button,
+    .submit-button {
+      width: 100%;
+    }
+  }
+}
